@@ -1,19 +1,18 @@
-const navToggle = document.querySelector(".nav__toggle");
-const navMenu = document.querySelector(".nav__menu");
 const navLinks = document.querySelectorAll(".nav__menu a");
+const navbarCollapse = document.querySelector("#mainNav");
 const contactForm = document.querySelector(".contact-form");
 const formMessage = document.querySelector(".form-message");
 
-if (navToggle && navMenu) {
-  navToggle.addEventListener("click", () => {
-    const isOpen = navMenu.classList.toggle("is-open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
+if (navbarCollapse && typeof bootstrap !== "undefined") {
+  const collapseInstance = bootstrap.Collapse.getOrCreateInstance(navbarCollapse, {
+    toggle: false
   });
 
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      navMenu.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
+      if (window.innerWidth < 992) {
+        collapseInstance.hide();
+      }
     });
   });
 }
