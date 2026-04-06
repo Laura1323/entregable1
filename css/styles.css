@@ -431,6 +431,24 @@ textarea {
   border-color: rgba(255, 255, 255, 0.12);
 }
 
+.result-card__label {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #f7f3ec;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.result-card__meta {
+  margin-bottom: 0.85rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
 .result-card p {
   color: rgba(247, 243, 236, 0.8);
 }
