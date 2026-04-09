@@ -2,6 +2,10 @@ const navLinks = document.querySelectorAll(".nav__menu a");
 const navbarCollapse = document.querySelector("#mainNav");
 const contactForm = document.querySelector(".contact-form");
 const formMessage = document.querySelector(".form-message");
+const sectionLinks = [...document.querySelectorAll('.nav__menu a[href^="#"]')];
+const sections = sectionLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
 
 if (navbarCollapse && typeof bootstrap !== "undefined") {
   const collapseInstance = bootstrap.Collapse.getOrCreateInstance(navbarCollapse, {
@@ -15,6 +19,29 @@ if (navbarCollapse && typeof bootstrap !== "undefined") {
       }
     });
   });
+}
+
+if (sectionLinks.length && sections.length) {
+  const setActiveLink = () => {
+    const scrollPosition = window.scrollY + 140;
+
+    let currentSection = sections[0];
+
+    sections.forEach((section) => {
+      if (scrollPosition >= section.offsetTop) {
+        currentSection = section;
+      }
+    });
+
+    sectionLinks.forEach((link) => {
+      const isCurrent = link.getAttribute("href") === `#${currentSection.id}`;
+      link.classList.toggle("is-active", isCurrent);
+      link.setAttribute("aria-current", isCurrent ? "page" : "false");
+    });
+  };
+
+  setActiveLink();
+  window.addEventListener("scroll", setActiveLink, { passive: true });
 }
 
 if (typeof AOS !== "undefined") {

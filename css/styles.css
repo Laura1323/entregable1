@@ -164,6 +164,8 @@ textarea {
 
 .nav__menu .nav-link {
   padding: 0.5rem 0;
+  border-radius: 999px;
+  transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
 }
 
 .hero__content {
@@ -576,10 +578,30 @@ textarea {
   .nav__menu a:not(.button) {
     color: var(--muted);
     font-weight: 500;
+    padding: 0.65rem 1rem;
+  }
+
+  .nav__menu a:not(.button):hover,
+  .nav__menu a:not(.button):focus-visible {
+    color: var(--primary);
+    background: rgba(91, 60, 196, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .nav__menu a:not(.button).is-active {
+    color: #fff;
+    background: var(--primary);
+    box-shadow: 0 12px 24px rgba(91, 60, 196, 0.22);
   }
 
   .nav__menu .button {
     width: auto;
+  }
+
+  .nav__menu .button.is-active {
+    background: #0b4f60;
+    box-shadow: 0 16px 28px rgba(15, 95, 115, 0.28);
+    transform: translateY(-1px);
   }
 
   .hero-card--main img {
