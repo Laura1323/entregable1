@@ -227,7 +227,8 @@ textarea {
   font-weight: 600;
   background: var(--primary);
   box-shadow: 0 12px 24px rgba(91, 60, 196, 0.22);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease,
+    background-color 0.25s ease, color 0.25s ease;
 }
 
 .button:hover,
@@ -247,6 +248,20 @@ textarea {
   color: #fff;
   background: var(--secondary);
   box-shadow: none;
+}
+
+.button--secondary:hover,
+.button--secondary:focus-visible {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 16px 28px rgba(91, 60, 196, 0.24);
+}
+
+.button--ghost:hover,
+.button--ghost:focus-visible {
+  background: #0b4f60;
+  box-shadow: 0 16px 28px rgba(15, 95, 115, 0.28);
 }
 
 .button--small {
@@ -300,12 +315,15 @@ textarea {
 }
 
 .hero-card--main {
+  position: relative;
   overflow: hidden;
 }
 
 .hero-card--main img {
-  aspect-ratio: 4 / 3.6;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 .hero-card__body,
@@ -319,18 +337,24 @@ textarea {
 }
 
 .hero-card__body {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(17, 33, 45, 0.04));
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(16, 32, 51, 0), rgba(16, 32, 51, 0.78));
 }
 
 .hero-card__body p {
   margin: 0;
-  color: var(--primary);
+  color: #d7caff;
   font-weight: 700;
 }
 
 .hero-card__body h2 {
   margin: 0.5rem 0 0;
   font-size: 1.4rem;
+  color: #fff;
 }
 
 .hero-card--floating {
@@ -475,6 +499,13 @@ textarea {
 .text-link {
   color: var(--primary);
   font-weight: 700;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  color: var(--primary-dark);
+  text-shadow: 0 0 0.01px currentColor;
 }
 
 .footer {
@@ -493,6 +524,16 @@ textarea {
   height: 2.75rem;
   border-radius: 50%;
   background: rgba(91, 60, 196, 0.1);
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+  color: #fff;
+  background: var(--primary);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 14px 24px rgba(91, 60, 196, 0.28);
 }
 
 .contact-form {
@@ -604,7 +645,4 @@ textarea {
     transform: translateY(-1px);
   }
 
-  .hero-card--main img {
-    aspect-ratio: 4 / 4.4;
-  }
 }
