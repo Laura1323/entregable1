@@ -437,10 +437,13 @@ textarea {
 }
 
 .member img {
-  aspect-ratio: 1;
-  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  object-position: center top;
+  padding: 0.35rem;
   border-radius: 18px;
   margin-bottom: 1rem;
+  background: linear-gradient(180deg, rgba(91, 60, 196, 0.08), rgba(15, 95, 115, 0.06));
 }
 
 .member h4 {
@@ -452,9 +455,9 @@ textarea {
 }
 
 .result-card {
-  color: #f7f3ec;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  background: rgba(255, 253, 248, 0.88);
+  border-color: var(--line);
 }
 
 .result-card__label {
@@ -462,8 +465,8 @@ textarea {
   margin-bottom: 0.85rem;
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  color: #f7f3ec;
+  background: rgba(45, 91, 121, 0.12);
+  color: var(--secondary);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -471,12 +474,12 @@ textarea {
 
 .result-card__meta {
   margin-bottom: 0.85rem;
-  color: #ffffff;
+  color: var(--text);
   font-weight: 500;
 }
 
 .result-card p {
-  color: rgba(247, 243, 236, 0.8);
+  color: var(--muted);
 }
 
 .gallery-item {
